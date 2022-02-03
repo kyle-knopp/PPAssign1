@@ -11,7 +11,7 @@ import java.util.Properties;
 import java.util.Vector;
 
 
-public abstract class Patron extends EntityBase {
+public class Patron extends EntityBase {
     private static final String myTableName = "Patron";
 
     protected Properties dependencies;
