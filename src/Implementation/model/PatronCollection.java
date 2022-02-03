@@ -14,21 +14,39 @@ public class PatronCollection extends EntityBase{
 
     public void findPatronsOlderThan(String date) throws Exception{
         if(date == null){
-            throw new Exception("UNEXPECTED ERROR: date is null")
+            throw new Exception("UNEXPECTED ERROR: date is null");
         }
 
         String query = "SELECT * FROM "+ myTableName+ "WHERE (dateOfBirth > "+date+")";
 
         queryHelper(query);
     }
-    public void findPatronsYoungerThan(String date){
+    public void findPatronsYoungerThan(String date)throws Exception{
+        if(date == null){
+            throw new Exception("UNEXPECTED ERROR: date is null");
+        }
 
+        String query = "SELECT * FROM "+ myTableName+ "WHERE (dateOfBirth < "+date+")";
+
+        queryHelper(query);
     }
-    public void findPatronsAtZipCode(String zip){
+    public void findPatronsAtZipCode(String zip)throws Exception{
+        if(zip == null){
+            throw new Exception("UNEXPECTED ERROR: zip is null");
+        }
 
+        String query = "SELECT * FROM "+ myTableName+ "WHERE (zip = "+zip+")";
+
+        queryHelper(query);
     }
-    public void findPatronsWithNameLike(String name){
+    public void findPatronsWithNameLike(String name)throws Exception{
+        if(name == null){
+            throw new Exception("UNEXPECTED ERROR: name is null");
+        }
 
+        String query = "SELECT * FROM "+ myTableName+ "WHERE (name LIKE "+name+")";
+
+        queryHelper(query);
     }
 
     public void queryHelper(String query){
